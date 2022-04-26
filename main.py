@@ -26,13 +26,11 @@ def init():
 
 
 def draw_coordinate():
-    glBegin(GL_LINES)
-    glColor3f(0.0, 0.0, 1.0)
+    glColor3f(1.0, 1.0, 1.0)
     glVertex2f(0.0, 100.0)
     glVertex2f(0.0, -100.0)
     glVertex2f(100.0, 0.0)
     glVertex2f(-100.0, 0.0)
-    glEnd()
 
 
 """ The draw_quadratic function draw a polynomial function with degree of 2 turning point at (0,0) and concave upward 
@@ -138,18 +136,20 @@ def draw():
         draw_cosine()
         glEnd()
     if var4.get():
-        glColor3f(0.5, 0.5, 0.5)
+        glColor3f(0.0, 0.0, 1.0)
         glPointSize(10)
         glBegin(GL_LINE_STRIP)
         draw_log()
         glEnd()
     if var5.get():
-        glColor3f(1.0, 1.0, 0.8)
+        glColor3f(1.0, 0.0, 0.0)
         glPointSize(10)
         glBegin(GL_LINE_STRIP)
         draw_power()
         glEnd()
+    glBegin(GL_LINES)
     draw_coordinate()
+    glEnd()
     glFlush()
 
 
@@ -170,6 +170,7 @@ def draw_again():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+        draw()
         pygame.display.flip()
         pygame.time.wait(10)
         window.update()  # update tkinter window
